@@ -2,6 +2,8 @@ console.log('***** Music Collection *****')
 
 let collection = []; //create array collection which is empty (...but not for long!)
 
+//----------building addToCollection function--------------------
+
 function addToCollection( title, artist, yearPublished ){ //begin function to add album to collection
     let album = { //creating album object
       t: title, //assign t dot operator title parameter/argument
@@ -26,7 +28,7 @@ for(let items of collection){ //create quick for of loop to show albums more cle
 
 console.log(' '); //create space for testing - hope I remember to delete this later!
 
-
+// ----------building showCollection function--------------------
 
 function showCollection(music){ //create showCollection function with parameter music
   console.log('Number of albums:', music.length); //log out the number of albums in the collection
@@ -34,5 +36,24 @@ function showCollection(music){ //create showCollection function with parameter 
     console.log('"'+music[i].t+'" by', music[i].a ,'published in', music[i].y);
   }
 }
-
 showCollection(collection); //send collection array to music in showCollection function
+
+// ----------building findByArtist function--------------------
+
+function findByArtist( artist ){ //create findByArtist array
+  let artistSearch = []; //create artistSearch array variable
+  for(i=0; i<collection.length; i++){ //looping to check collection list for artist
+    if(artist === collection[i].a){ //if artist name is equal to any name in the a dot operator of the array...
+      artistSearch.push(collection[i].a) //...then add that artist name to the artistSearch array
+      return artistSearch;
+    } //end if artist is in collection statement
+  } //end loop checking if artist in collection
+  return 'sorry, artist not found :('
+} //end findByArtist function
+
+console.log(' '); //creating space for clarity
+
+console.log( 'Searching for "Van Halen" -', findByArtist( 'Van Halen' ));
+console.log( 'Searching for "Offspring" -', findByArtist( 'Offspring' ));
+console.log( 'Searching for "Smashing Pumpkins" -', findByArtist( 'Smashing Pumpkins' ));
+console.log( 'Searching for "Insane Clown Posse" -', findByArtist( 'Insane Clown Posse' ));
