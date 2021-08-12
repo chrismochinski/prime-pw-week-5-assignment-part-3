@@ -23,3 +23,16 @@ console.log('Added:', addToCollection('Carnival Of Carnage', 'Insane Clown Posse
 for(let items of collection){ //create quick for of loop to show albums more cleanly (hopefully that's ok)
   console.log(items); //log the array as explained
 }
+
+console.log(' '); //create space for testing - hope I remember to delete this later!
+
+
+
+function showCollection(music){ //create showCollection function with parameter music
+  console.log('Number of albums:', music.length); //log out the number of albums in the collection
+  for(i=0; i < music.length; i++){
+    console.log('"'+music[i].t+'" by', music[i].a ,'published in', music[i].y);
+  }
+}
+
+showCollection(collection); //send collection array to music in showCollection function
