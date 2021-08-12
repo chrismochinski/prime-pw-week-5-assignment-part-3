@@ -1,5 +1,7 @@
 console.log('***** Music Collection *****')
 
+console.log(' '); //create space for testing - hope I remember to delete this later!
+
 let collection = []; //create array collection which is empty (...but not for long!)
 
 //----------building addToCollection function--------------------
@@ -20,6 +22,8 @@ console.log('Added:', addToCollection('5150', 'Van Halen', 1986)); // etc for fo
 console.log('Added:', addToCollection('Diver Down', 'Van Halen', 1982));
 console.log('Added:', addToCollection("This One's For You", 'Barry Manilow', 1976));
 console.log('Added:', addToCollection('Carnival Of Carnage', 'Insane Clown Posse', 1992));
+
+console.log(' '); //create space for testing - hope I remember to delete this later!
 
 for(let items of collection){ //create quick for of loop to show albums more cleanly (hopefully that's ok)
   console.log(items); //log the array as explained
@@ -66,21 +70,21 @@ console.log(' '); //creating a little space for console clarity...need to find a
 
 function search( info ){ //create search function with info parameter
   let content = []; //create empty array called content
-  // console.log(info)
   for(i=0; i<collection.length; i++){ //looping to check collection list for artist
-    if(info.artist === collection[i].a && info.year === collection[i].y){
-      content.push(collection[i].a, collection[i].y);
+    if(info.artist === collection[i].a && info.year === collection[i].y){ // if the artist property of the argument object is equal to the a dot operator in [i] array of the collection AAAANNNNDDDD the year object property is equal to the y dot operator in the collection...
+      content.push(info.artist, info.year); //...then push these into the content array
     } //end conditional
     if(info.artist == null){ //if the argument is blank
       return collection; //return the original collection
     } // end if blank
   } //end for loop
-  return content;
+  return content; //return content array
 } //end search function
 
 console.log(search({ artist: 'Ray Charles', year: 1957 })); //sending arguments as anonymous object with properties artist and year
 console.log(search({ artist: 'Offspring', year: 1994 })); //sending arguments as anonymous object with properties artist and year
 console.log(search({ artist: 'Tonic', year: 1998 })); //sending arguments as anonymous object with properties artist and year
+console.log(search({      }));
 console.log(search({ artist: 'Insane Clown Posse', year: 1992 })); //sending arguments as anonymous object with properties artist and year
 console.log(search({ artist: 'Van Halen', year: 1985 })); //sending arguments as anonymous object with properties artist and year
-console.log(search({  }));
+console.log(search({}));
