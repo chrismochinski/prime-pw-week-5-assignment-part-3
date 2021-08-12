@@ -21,7 +21,6 @@ console.log('Added:', addToCollection('Diver Down', 'Van Halen', 1982));
 console.log('Added:', addToCollection("This One's For You", 'Barry Manilow', 1976));
 console.log('Added:', addToCollection('Carnival Of Carnage', 'Insane Clown Posse', 1992));
 
-
 for(let items of collection){ //create quick for of loop to show albums more cleanly (hopefully that's ok)
   console.log(items); //log the array as explained
 }
@@ -38,6 +37,9 @@ function showCollection(music){ //create showCollection function with parameter 
 }
 showCollection(collection); //send collection array to music in showCollection function
 
+console.log(' '); //creating a little space for console clarity...need to find a better way to do this...
+
+
 // ----------building findByArtist function--------------------
 
 function findByArtist( artist ){ //create findByArtist array
@@ -53,7 +55,32 @@ function findByArtist( artist ){ //create findByArtist array
 
 console.log(' '); //creating a little space for console clarity...need to find a better way to do this...
 
-console.log( 'Searching for "Van Halen" -', findByArtist( 'Van Halen' ));
-console.log( 'Searching for "Offspring" -', findByArtist( 'Offspring' ));
-console.log( 'Searching for "Smashing Pumpkins" -', findByArtist( 'Smashing Pumpkins' ));
-console.log( 'Searching for "Insane Clown Posse" -', findByArtist( 'Insane Clown Posse' ));
+console.log( 'Looking for "Van Halen" -', findByArtist( 'Van Halen' ));
+console.log( 'Looking for "Offspring" -', findByArtist( 'Offspring' ));
+console.log( 'Looking for "Smashing Pumpkins" -', findByArtist( 'Smashing Pumpkins' ));
+console.log( 'Looking for "Insane Clown Posse" -', findByArtist( 'Insane Clown Posse' ));
+
+console.log(' '); //creating a little space for console clarity...need to find a better way to do this...
+
+//----------STRETCH STUFF!!--------------------
+
+function search( info ){ //create search function with info parameter
+  let content = []; //create empty array called content
+  // console.log(info)
+  for(i=0; i<collection.length; i++){ //looping to check collection list for artist
+    if(info.artist === collection[i].a && info.year === collection[i].y){
+      content.push(collection[i].a, collection[i].y);
+    } //end conditional
+    if(info.artist == null){ //if the argument is blank
+      return collection; //return the original collection
+    } // end if blank
+  } //end for loop
+  return content;
+} //end search function
+
+console.log(search({ artist: 'Ray Charles', year: 1957 })); //sending arguments as anonymous object with properties artist and year
+console.log(search({ artist: 'Offspring', year: 1994 })); //sending arguments as anonymous object with properties artist and year
+console.log(search({ artist: 'Tonic', year: 1998 })); //sending arguments as anonymous object with properties artist and year
+console.log(search({ artist: 'Insane Clown Posse', year: 1992 })); //sending arguments as anonymous object with properties artist and year
+console.log(search({ artist: 'Van Halen', year: 1985 })); //sending arguments as anonymous object with properties artist and year
+console.log(search({  }));
