@@ -1,6 +1,6 @@
 console.log('***** Music Collection *****')
 
-let collection = [];
+let collection = []; //create array collection which is empty (...but not for long!)
 
 function addToCollection( title, artist, yearPublished ){ //begin function to add album to collection
     let album = { //creating album object
@@ -12,16 +12,14 @@ function addToCollection( title, artist, yearPublished ){ //begin function to ad
 } //end addToCollection function
 
 
-addToCollection('Smash', 'Offspring', 1994); //adding album
-addToCollection('Trololo', 'Eduard Khil', 1976); //adding another album
-addToCollection('5150', 'Van Halen', 1986); // etc for four more
-addToCollection('Diver Down', 'Van Halen', 1982);
-addToCollection("This One's For You", 'Barry Manilow', 1976);
-addToCollection('Carnival Of Carnage', 'Insane Clown Posse', 1992);
-
-console.log(collection);
+console.log('Added:', addToCollection('Smash', 'Offspring', 1994)); //adding album #1
+console.log('Added:', addToCollection('Trololo', 'Eduard Khil', 1976)); //adding album #2
+console.log('Added:', addToCollection('5150', 'Van Halen', 1986)); // etc for four more......
+console.log('Added:', addToCollection('Diver Down', 'Van Halen', 1982));
+console.log('Added:', addToCollection("This One's For You", 'Barry Manilow', 1976));
+console.log('Added:', addToCollection('Carnival Of Carnage', 'Insane Clown Posse', 1992));
 
 
-
-// for(let items of collection)
-//   console.log(items);
+for(let items of collection){ //create quick for of loop to show albums cleaner
+  console.log(items); //log the array
+}
