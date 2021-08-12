@@ -51,7 +51,7 @@ function findByArtist( artist ){ //create findByArtist array
   return artistSearch;
 } //end findByArtist function
 
-console.log(' '); //creating space for clarity
+console.log(' '); //creating a little space for console clarity...need to find a better way to do this...
 
 console.log( 'Searching for "Van Halen" -', findByArtist( 'Van Halen' ));
 console.log( 'Searching for "Offspring" -', findByArtist( 'Offspring' ));
