@@ -20,6 +20,6 @@ console.log('Added:', addToCollection("This One's For You", 'Barry Manilow', 197
 console.log('Added:', addToCollection('Carnival Of Carnage', 'Insane Clown Posse', 1992));
 
 
-for(let items of collection){ //create quick for of loop to show albums cleaner
-  console.log(items); //log the array
+for(let items of collection){ //create quick for of loop to show albums more cleanly (hopefully that's ok)
+  console.log(items); //log the array as explained
 }
