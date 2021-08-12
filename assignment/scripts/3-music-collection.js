@@ -45,10 +45,10 @@ function findByArtist( artist ){ //create findByArtist array
   for(i=0; i<collection.length; i++){ //looping to check collection list for artist
     if(artist === collection[i].a){ //if artist name is equal to any name in the a dot operator of the array...
       artistSearch.push(collection[i].a) //...then add that artist name to the artistSearch array
-      return artistSearch;
+      // return artistSearch;
     } //end if artist is in collection statement
   } //end loop checking if artist in collection
-  return 'sorry, artist not found :('
+  return artistSearch;
 } //end findByArtist function
 
 console.log(' '); //creating space for clarity
