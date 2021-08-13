@@ -6,22 +6,23 @@ let collection = []; //create array collection which is empty (...but not for lo
 
 //----------building addToCollection function--------------------
 
-function addToCollection( title, artist, yearPublished ){ //begin function to add album to collection
+function addToCollection( title, artist, yearPublished, tracks){ //begin function to add album to collection
     let album = { //creating album object
-      t: title, //assign t dot operator title parameter/argument
-      a: artist, //assign a dot operator album parameter/argument
-      y: yearPublished }; //assign y dot operator yearPublished parameter/argument
+      title: title, //assign title property/dot operator title parameter/argument
+      artist: artist, //assign artist property/dot operator album parameter/argument
+      yearPublished: yearPublished, //assign yearPublished property/dot operator yearPublished parameter/argument
+      tracks: tracks } //assign trackListing property/dot operator for "track listing" - first five only, for test sake
     collection.push(album); //push album to collection
     return album; //return the album based on the three arguments
 } //end addToCollection function
 
 
-console.log('Added:', addToCollection('Smash', 'Offspring', 1994)); //adding album #1
-console.log('Added:', addToCollection('Trololo', 'Eduard Khil', 1976)); //adding album #2
-console.log('Added:', addToCollection('5150', 'Van Halen', 1986)); // etc for four more......
-console.log('Added:', addToCollection('Diver Down', 'Van Halen', 1982));
-console.log('Added:', addToCollection("This One's For You", 'Barry Manilow', 1976));
-console.log('Added:', addToCollection('Carnival Of Carnage', 'Insane Clown Posse', 1992));
+console.log('Added:', addToCollection('Smash', 'Offspring', 1994, ['1. Time To Relax (0:25)', '2. Nitro(Youth Energy) (2:27)', '3. Bad Habit (3:44)', '4. Gotta Get Away (3:52)', '5. Genocide (3:33)', '6. Something To Believe In (3:17)', '7. Come Out And Play (3:17)','8. Self Esteem (4:17)', "9. It'll Be A Long Time (2:43)", '10. Killboy Powerhead (2:02)', '11. What Happened To You? (2:12)', '12. So Alone (1:17)', '13. Not The One (2:54)', '14. Smash (10:42)'])); //adding album #1
+console.log('Added:', addToCollection('Dizzy Up The Girl', 'Goo Goo Dolls', 1998, ['1. Dizzy (2:43)', '2. Slide (3:34)', '3. Broadway (4:00)', '4. January Friend (2:46)', '5. Black Balloon (4:11)'])); //adding album #2
+console.log('Added:', addToCollection('5150', 'Van Halen', 1986, ['1. Good Enough (4:05)', "2. Why Can't This Be Love (3:48)", '3. Get Up (4:37)', '4. Dreams (4:54)', '5. Summer Nights (5:06)'])); // etc for four more......
+console.log('Added:', addToCollection('Diver Down', 'Van Halen', 1982, ['1. Where Have All The Good Times Gone? (3:04)', "2. Hang 'Em High (3:29)", '3. Cathedral (1:23)', '4. Secrets (3:27)', '5. Intruder (1:40)']));
+console.log('Added:', addToCollection("This One's For You", 'Barry Manilow', 1976, ["1. This One's For You (3:28)", '2. Daybreak (3:08)', '3. You Oughta Be Home With Me (3:13)', '4. Jump Shout Boogie (3:03)', '5. Weekend In New England (3:45)']));
+console.log('Added:', addToCollection('Carnival Of Carnage', 'Insane Clown Posse', 1992, ['1. (Intro) (1:22)', '2. Carnival Of Carnage (2:32)', '3. The Juggla (4:55)', '4. First Day Out (4:21)', '5. Red Neck Hoe (4:50)']));
 
 console.log(' '); //create space for testing - hope I remember to delete this later!
 
@@ -36,7 +37,10 @@ console.log(' '); //create space for testing - hope I remember to delete this la
 function showCollection(music){ //create showCollection function with parameter music
   console.log('Number of albums:', music.length); //log out the number of albums in the collection
   for(i=0; i < music.length; i++){
-    console.log('"'+music[i].t+'" by', music[i].a ,'published in', music[i].y);
+    console.log('"'+music[i].title+'" by', music[i].artist ,'published in', music[i].yearPublished);
+    for (jams of music[i].tracks){
+      console.log(jams);
+    }
   }
 }
 showCollection(collection); //send collection array to music in showCollection function
@@ -49,8 +53,8 @@ console.log(' '); //creating a little space for console clarity...need to find a
 function findByArtist( artist ){ //create findByArtist array
   let artistSearch = []; //create artistSearch array variable
   for(i=0; i<collection.length; i++){ //looping to check collection list for artist
-    if(artist === collection[i].a){ //if artist name is equal to any name in the a dot operator of the array...
-      artistSearch.push(collection[i].a) //...then add that artist name to the artistSearch array
+    if(artist === collection[i].artist){ //if artist name is equal to any name in the a dot operator of the array...
+      artistSearch.push(collection[i].artist) //...then add that artist name to the artistSearch array
       // return artistSearch;
     } //end if artist is in collection statement
   } //end loop checking if artist in collection
@@ -66,13 +70,14 @@ console.log( 'Looking for "Insane Clown Posse" -', findByArtist( 'Insane Clown P
 
 console.log(' '); //creating a little space for console clarity...need to find a better way to do this...
 
-//----------STRETCH STUFF!!--------------------
+//--------------------------------------------------
+//---------------STRETCH STUFF!!--------------------
 
 function search( info ){ //create search function with info parameter
   let content = []; //create empty array called content
   for(i=0; i<collection.length; i++){ //looping to check collection list for artist
-    if(info.artist === collection[i].a && info.year === collection[i].y){ // if the artist property of the argument object is equal to the a dot operator in [i] array of the collection AAAANNNNDDDD the year object property is equal to the y dot operator in the collection...
-      content.push(info.artist, info.year); //...then push these into the content array
+    if(info.artist === collection[i].artist && info.year === collection[i].yearPublished){ // if the artist property of the argument object is equal to the a dot operator in [i] array of the collection AAAANNNNDDDD the year object property is equal to the y dot operator in the collection...
+      content.push(info.artist, collection[i].title, info.year, collection[i].tracks); //...then push these into the content array
     } //end conditional
     if(info.artist == null){ //if the argument is blank
       return collection; //return the original collection
@@ -88,3 +93,8 @@ console.log(search({      }));
 console.log(search({ artist: 'Insane Clown Posse', year: 1992 })); //sending arguments as anonymous object with properties artist and year
 console.log(search({ artist: 'Van Halen', year: 1985 })); //sending arguments as anonymous object with properties artist and year
 console.log(search({}));
+
+//--------------------------------------------------
+//---------------STRETCH STUFF P2!------------------
+
+// see above for changes
