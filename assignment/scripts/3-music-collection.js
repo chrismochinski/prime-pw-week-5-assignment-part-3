@@ -39,7 +39,7 @@ function showCollection(music){ //create showCollection function with parameter 
   console.log('Number of albums:', music.length); //log out the number of albums in the collection
   for(i=0; i < music.length; i++){ // typical loop time checking through what comes into the showCollection function as music
     // console.log('"'+music[i].title+'" by', music[i].artist ,'published in', music[i].yearPublished); // this was my first console log of the album info, using regular syntax
-    console.log(' ');
+    console.log(' '); //add space for clarity - must find a better way!
     console.log(`"${music[i].title}" by ${music[i].artist}, published ${music[i].yearPublished}.`); //I haven't played with "template literals" much and, in this case, it felt better...right?
     for(jams of music[i].tracks){ //for of loop for "jams" of my music parameter
       console.log(jams); // log the jams!
@@ -80,7 +80,7 @@ function search( info ){ //create search function with info parameter
   let content = []; //create empty array called content
   for(i=0; i<collection.length; i++){ //looping to check collection list for artist
     if(info.artist === collection[i].artist && info.year === collection[i].yearPublished){ // if the artist property of the argument object is equal to the a dot operator in [i] array of the collection AAAANNNNDDDD the year object property is equal to the y dot operator in the collection...
-      content.push(info.artist, collection[i].title, info.year, collection[i].tracks); //...then push these into the content array
+      content.push(info.artist, collection[i].title, info.year, collection[i].tracks); // see the *** li in index.html
     } //end conditional
     if(info.artist == null){ //if the argument is blank
       return collection; //return the original collection
