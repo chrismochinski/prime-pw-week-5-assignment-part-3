@@ -37,7 +37,7 @@ console.log(' '); //create space for testing - hope I remember to delete this la
 
 function showCollection(music){ //create showCollection function with parameter music
   console.log('Number of albums:', music.length); //log out the number of albums in the collection
-  for(i=0; i < music.length; i++){ // typical loop time checking through what comes into the showCollection function as music
+  for(let i=0; i < music.length; i++){ // typical loop time checking through what comes into the showCollection function as music
     // console.log('"'+music[i].title+'" by', music[i].artist ,'published in', music[i].yearPublished); // this was my first console log of the album info, using regular syntax
     console.log(' '); //add space for clarity - must find a better way!
     console.log(`"${music[i].title}" by ${music[i].artist}, published ${music[i].yearPublished}.`); //I haven't played with "template literals" much and, in this case, it felt better...right?
@@ -55,7 +55,7 @@ console.log(' '); //creating a little space for console clarity...need to find a
 
 function findByArtist( artist ){ //create findByArtist array
   let artistSearch = []; //create artistSearch array variable
-  for(i=0; i<collection.length; i++){ //looping to check collection list for artist
+  for(let i=0; i<collection.length; i++){ //looping to check collection list for artist
     if(artist === collection[i].artist){ //if artist name is equal to any name in the a dot operator of the array...
       artistSearch.push(collection[i].artist) //...then add that artist name to the artistSearch array
       // return artistSearch;
@@ -78,7 +78,7 @@ console.log(' '); //creating a little space for console clarity...need to find a
 
 function search( info ){ //create search function with info parameter
   let content = []; //create empty array called content
-  for(i=0; i<collection.length; i++){ //looping to check collection list for artist
+  for(let i=0; i<collection.length; i++){ //looping to check collection list for artist
     if(info.artist === collection[i].artist && info.year === collection[i].yearPublished){ // if the artist property of the argument object is equal to the a dot operator in [i] array of the collection AAAANNNNDDDD the year object property is equal to the y dot operator in the collection...
       content.push(info.artist, collection[i].title, info.year, collection[i].tracks); // see the *** li in index.html
     } //end conditional
