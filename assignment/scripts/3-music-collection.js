@@ -11,7 +11,7 @@ function addToCollection( title, artist, yearPublished, tracks){ //begin functio
       title: title, //assign title property/dot operator title parameter/argument
       artist: artist, //assign artist property/dot operator album parameter/argument
       yearPublished: yearPublished, //assign yearPublished property/dot operator yearPublished parameter/argument
-      tracks: tracks } //assign trackListing property/dot operator for "track listing" - first five only, for test sake
+      tracks: tracks } //assign trackListing property/dot operator for "track listing" - first five only, for test sake - see ## for clarification in index.html
     collection.push(album); //push album to collection
     return album; //return the album based on the three arguments
 } //end addToCollection function
